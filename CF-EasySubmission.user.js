@@ -18,12 +18,14 @@
 // @run-at       document-start
 // ==/UserScript==
 
-// If you dont want the dark theme remove line 16
+// If you dont want the dark theme remove line 17
 
 let problemPageFontSize="1.8em";
 let submitKey='s';
+let solutionPageKey='g';
+let friendsolutionPageKey='f';
 
-let arr=location.pathname.split('/') , n=arr.length;
+let arr=location.pathname.replace('problemset/problem','contest').split('/') , n=arr.length;
 
 (function (){
     window.addEventListener('load',function(){
@@ -34,6 +36,7 @@ let arr=location.pathname.split('/') , n=arr.length;
         }
     });
 })();
+
 
 
 
@@ -54,12 +57,17 @@ function submitPage(){
 
 function problemStatementPage(){
     document.querySelector('.problem-statement').style.fontSize=problemPageFontSize;
+    let url=`/${arr[1]}/${arr[2]}`;
     GM_setValue('pid',arr[n-1]);
     window.scroll(0,172);
     document.addEventListener('keydown', function (event) {
         if (event.key === submitKey) {
-            let submit=arr[1]+(arr[1]=="contest"?'/'+arr[2]:'')+'/submit';
-            window.open(`/${submit}`);
+            window.open(`${url}/submit`);
+        } else if (event.key === solutionPageKey){
+            window.open(`${url}/status/${arr[n-1]}`);
+        } else if (event.key === friendsolutionPageKey){
+            window.open(`${url}/status/${arr[n-1]}/?friends=on`);
         }
     });
 }
+
