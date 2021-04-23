@@ -1,7 +1,7 @@
 # How to install
 
 1. Install Tampermonkey for your browser. ([Instructions](https://tampermonkey.net/)).
-2. [**Click this link**](https://github.com/gr523/codeforces-darktheme/raw/master/CF-EasySubmission.user.js) to install CF-EasySubmission userscript
+2. [**Click this link**](https://github.com/gr523/Codeforces-EasySubmission/raw/easysub/CF-EasySubmission.user.js) to install CF-EasySubmission userscript
 
 
 # Easy submission
